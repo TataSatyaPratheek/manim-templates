@@ -1,8 +1,10 @@
 from TTS.utils.manage import ModelManager
 
-# Create an instance of ModelManager
-model_manager = ModelManager()
+def list_models():
+    model_manager = ModelManager()
+    models = model_manager.list_models()
+    return models
 
-# List available models
-models = model_manager.list_models()
-print("Available models:", models)
+if __name__ == "__main__":
+    models = list_models()
+    print("Available models:", models)

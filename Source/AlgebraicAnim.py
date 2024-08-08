@@ -1,3 +1,4 @@
+# AlgebraicAnim.py
 # Project: Manim-Templates
 # Copyright(c) 2024 Skillbanc.com, Inc.
 # License: MIT License
@@ -6,42 +7,82 @@ import json
 from manim import *
 from numpy import size
 from AbstractAnim import AbstractAnim
-
 import cvo
 
 # Configure Manim to allow more cached files
 config.max_files_cached = 550  # Change this number to your desired value
 
 class AlgebraicAnim(AbstractAnim):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.SourceCodeFileName = "AlgebraicAnim.py"  # Define the missing attribute
+
     def construct(self):
         self.RenderSkillbancLogo()
+        print(f"After RenderSkillbancLogo: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 1: {len(self.mobjects)} objects")
         self.Introduction()
+        print(f"After Introduction: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 2: {len(self.mobjects)} objects")
         self.Types()
+        print(f"After Types: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 3: {len(self.mobjects)} objects")
         self.Polynomials()
+        print(f"After Polynomials: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 4: {len(self.mobjects)} objects")
         self.linearpolynomial()
+        print(f"After linearpolynomial: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 5: {len(self.mobjects)} objects")
         self.quadraticpolynomial()
+        print(f"After quadraticpolynomial: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 6: {len(self.mobjects)} objects")
         self.cubicpolynomial()
+        print(f"After cubicpolynomial: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 7: {len(self.mobjects)} objects")
         self.quarticpolynomial()
+        print(f"After quarticpolynomial: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 8: {len(self.mobjects)} objects")
         self.quinticpolynomial()
+        print(f"After quinticpolynomial: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 9: {len(self.mobjects)} objects")
         self.sexticpolynomial()
+        print(f"After sexticpolynomial: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 10: {len(self.mobjects)} objects")
         self.Relations()
+        print(f"After Relations: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 11: {len(self.mobjects)} objects")
         self.identities()
+        print(f"After identities: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 12: {len(self.mobjects)} objects")
         self.GithubSourceCodeReference()
+        print(f"After GithubSourceCodeReference: {len(self.mobjects)} objects")
         self.fadeOutCurrentScene()
+        print(f"After fadeOutCurrentScene 13: {len(self.mobjects)} objects")
     
-    
+    def RenderSkillbancLogo(self):
+        logo = Text("Skillbanc Logo")
+        self.play(Write(logo))
+        self.add(logo)
+
+    def fadeOutCurrentScene(self):
+        self.play(FadeOut(*self.mobjects))
+
+    def setNumberOfCirclePositions(self, numberOfCircles: int):
+        self.positionChoice = self.calculate_positions(numberOfCircles)
+
+
     def Introduction(self):
         self.setNumberOfCirclePositions(3)
         self.isRandom = False
@@ -73,7 +114,6 @@ class AlgebraicAnim(AbstractAnim):
 
         self.construct1(p10, p10)
 
-    
     def Polynomials(self):
         self.setNumberOfCirclePositions(7)
         p10 = cvo.CVO().CreateCVO("polynomials", "types").setPosition([0, 2.5, 0])
@@ -207,9 +247,15 @@ class AlgebraicAnim(AbstractAnim):
         
         self.construct1(p10, p10)
 
+    def GithubSourceCodeReference(self):
+        self.setNumberOfCirclePositions(3)
+        p10 = cvo.CVO().CreateCVO("GITHUB SOURCE CODE LINK", "")
+        p11 = cvo.CVO().CreateCVO("File Name", self.SourceCodeFileName)
+        p12 = cvo.CVO().CreateCVO("Github Url", "https://github.com/Skillbanc")
+        p10.cvolist.append(p11)
+        p10.cvolist.append(p12)
+        self.construct1(p10, p10)
 
-        
-        
 if __name__ == "__main__":
     scene = AlgebraicAnim()
     scene.render()

@@ -9,124 +9,79 @@ class Addition(Scene):
         self.AddOfFractionExp3()
 
     def AdditionOfFractions(self):
-        # Define the radius of the square
         radius = 1
-        
-        # Create a square with the specified radius (side length will be 2 * radius)
         side_length = radius * 2
         square1 = Square(side_length=side_length)
-        
-        # Create vertical and horizontal lines matching the radius of the square
         vertical_line1 = Line(start=[0, -radius, 0], end=[0, radius, 0])
         horizontal_line1 = Line(start=[-radius, 0, 0], end=[radius, 0, 0])
-
-        # Group all elements of square1
         group1 = VGroup(square1, vertical_line1, horizontal_line1)
-
-        # Create a polygon to shade one quarter of square1
         shaded_area1 = Polygon(
             [0, 0, 0], [0, radius, 0], [radius, radius, 0], [radius, 0, 0],
             fill_opacity=0.5, fill_color=BLUE
         )
-        
-        # Add the shaded area to group1
         group1.add(shaded_area1)
-        
-        # Shift square1 to its position
         group1.shift(LEFT * 4)
-
-        # Add group1 to the scene
+        print("Calling play in AdditionOfFractions for square1, vertical_line1, horizontal_line1, shaded_area1")
         self.play(Create(square1), Create(vertical_line1), Create(horizontal_line1), Create(shaded_area1))
-        
-        # Create the text "1/4" and position it below square1
         text1 = Tex(r"$\frac{1}{4}$")
         text1.shift(DOWN * 2 + LEFT * 4)
-        
-        # Add text1 to the scene
+        print("Calling play in AdditionOfFractions for text1")
         self.play(Write(text1))
+
     def AddSymbol(self):
-        equals_signs = Tex("+").scale(1.5).shift(UP*0.1+LEFT*2.5)
-        self.play(Write(equals_signs))
+        add_sign = Tex("+").scale(1.5).shift(UP * 0.1 + LEFT * 2.5)
+        print("Calling play in AddSymbol for add_sign")
+        self.play(Write(add_sign))
 
     def AddOfFractionExp2(self):
         radius = 1
-        
-        # Create a square with the specified radius (side length will be 2 * radius)
         side_length = radius * 2
-        square1 = Square(side_length=side_length)
-        
-        # Create vertical and horizontal lines matching the radius of the square
-        vertical_line1 = Line(start=[0, -radius, 0], end=[0, radius, 0])
-        horizontal_line1 = Line(start=[-radius, 0, 0], end=[radius, 0, 0])
-
-        # Group all elements of square1
-        group1 = VGroup(square1, vertical_line1, horizontal_line1)
-
-        # Create a polygon to shade one quarter of square1
-        shaded_area1 = Polygon(
+        square2 = Square(side_length=side_length)
+        vertical_line2 = Line(start=[0, -radius, 0], end=[0, radius, 0])
+        horizontal_line2 = Line(start=[-radius, 0, 0], end=[radius, 0, 0])
+        group2 = VGroup(square2, vertical_line2, horizontal_line2)
+        shaded_area2 = Polygon(
             [0, 0, 0], [0, radius, 0], [radius, radius, 0], [radius, 0, 0],
             fill_opacity=0.5, fill_color=BLUE
         )
-        
-        # Add the shaded area to group1
-        group1.add(shaded_area1)
-        
-        # Shift square1 to its position
-        group1.shift(LEFT * 1)
-
-        # Add group1 to the scene
-        self.play(Create(square1), Create(vertical_line1), Create(horizontal_line1), Create(shaded_area1))
-        
-        # Create the text "1/4" and position it below square1
-        text1 = Tex(r"$\frac{1}{4}$")
-        text1.shift(DOWN * 2 + LEFT * 1)
-        # Add text1 to the scene
-        self.play(Write(text1))
+        group2.add(shaded_area2)
+        group2.shift(LEFT * 1)
+        print("Calling play in AddOfFractionExp2 for square2, vertical_line2, horizontal_line2, shaded_area2")
+        self.play(Create(square2), Create(vertical_line2), Create(horizontal_line2), Create(shaded_area2))
+        text2 = Tex(r"$\frac{1}{4}$")
+        text2.shift(DOWN * 2 + LEFT * 1)
+        print("Calling play in AddOfFractionExp2 for text2")
+        self.play(Write(text2))
 
     def EquallSym(self):
-        equals_signs = Tex("=").scale(1.5).shift(UP*0.1+RIGHT*1)
-        self.play(Write(equals_signs))
+        equals_sign = Tex("=").scale(1.5).shift(UP * 0.1 + RIGHT * 1)
+        print("Calling play in EquallSym for equals_sign")
+        self.play(Write(equals_sign))
+
     def AddOfFractionExp3(self):
-
         radius = 1
-        
-        # Create a square with the specified radius (side length will be 2 * radius)
         side_length = radius * 2
-        square1 = Square(side_length=side_length)
-        
-        # Create vertical and horizontal lines matching the radius of the square
-        vertical_line1 = Line(start=[0, -radius, 0], end=[0, radius, 0])
-        horizontal_line1 = Line(start=[-radius, 0, 0], end=[radius, 0, 0])
-
-        # Group all elements of square1
-        group1 = VGroup(square1, vertical_line1, horizontal_line1)
-        shaded_area_size = side_length / 2
-        # Create a polygon to shade one quarter of square1
-        shaded_area1_1 = Polygon(
+        square3 = Square(side_length=side_length)
+        vertical_line3 = Line(start=[0, -radius, 0], end=[0, radius, 0])
+        horizontal_line3 = Line(start=[-radius, 0, 0], end=[radius, 0, 0])
+        group3 = VGroup(square3, vertical_line3, horizontal_line3)
+        shaded_area3_1 = Polygon(
             [0, 0, 0], [0, radius, 0], [radius, radius, 0], [radius, 0, 0],
             fill_opacity=0.5, fill_color=BLUE
         )
-        shaded_area1_2 = Polygon(
+        shaded_area3_2 = Polygon(
             [0, 0, 0], [0, radius, 0], [-radius, radius, 0], [-radius, 0, 0],
             fill_opacity=0.5, fill_color=BLUE
         )
+        group3.add(shaded_area3_1, shaded_area3_2)
+        group3.shift(RIGHT * 3)
+        print("Calling play in AddOfFractionExp3 for square3, vertical_line3, horizontal_line3, shaded_area3_1, shaded_area3_2")
+        self.play(Create(square3), Create(vertical_line3), Create(horizontal_line3), Create(shaded_area3_1), Create(shaded_area3_2))
+        text3 = Tex(r"$\frac{1}{2}$")
+        text3.shift(DOWN * 2 + RIGHT * 3)
+        print("Calling play in AddOfFractionExp3 for text3")
+        self.play(Write(text3))
 
-        # Add shaded areas to group1
-        group1.add(shaded_area1_1, shaded_area1_2)
-        
-        # Shift square1 to its position
-        group1.shift(RIGHT*3)
-
-        # Add group1 to the scene
-        self.play(Create(square1), Create(vertical_line1), Create(horizontal_line1), Create(shaded_area1_1),Create(shaded_area1_2))
-        
-        # Create the text "1/4" and position it below square1
-        text1 = Tex(r"$\frac{1}{2}$")
-        text1.shift(DOWN * 2 + RIGHT * 3)
-        
-        # Add text1 to the scene
-        self.play(Write(text1))
-    
 if __name__ == "__main__":
     scene = Addition()
     scene.render()
