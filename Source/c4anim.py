@@ -20,7 +20,7 @@ class C4Anim(AbstractAnim):
         p10.cvolist.append(p13)
 
         # Create the main object and its children with dynamic adjustment to avoid overlaps
-        self.construct_object(p10)
+        self.prepare_scene(p10)
 
 if __name__ == "__main__":
     scene = C4Anim()

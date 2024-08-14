@@ -15,19 +15,16 @@ class C5Anim(AbstractAnim):
         # Create the CVO objects
         p10 = cvo.CVO().CreateCVO("Person", "John Doe")
         p11 = cvo.CVO().CreateCVO("Age", "36")
-        p12 = cvo.CVO().CreateCVO("In Words", "Thirty Six")
-        p13 = cvo.CVO().CreateCVO("Gender", "Male")
-        p14 = cvo.CVO().CreateCVO("Height", "5'9\"")
-
-        # Establish relationships (parent-child)
-        p11.cvolist.append(p12)  # "In Words" is a child of "Age"
-        
         p10.cvolist.append(p11)  # "Age" is a child of "Person"
+        p12 = cvo.CVO().CreateCVO("In Words", "Thirty Six")
+        p11.cvolist.append(p12)  # "In Words" is a child of "Age"
+        p13 = cvo.CVO().CreateCVO("Gender", "Male")
         p10.cvolist.append(p13)  # "Gender" is a child of "Person"
-        p10.cvolist.append(p14)  # "Height" is a child of "Person"
+        p14 = cvo.CVO().CreateCVO("Height", "5'9\"")
+        p10.cvolist.append(p14)  # "Height" is a child of "Person"  
         
         # Construct the object starting with the root (Person)
-        self.construct_object(p10)
+        self.prepare_scene(p10)
         
 
 if __name__ == "__main__":
